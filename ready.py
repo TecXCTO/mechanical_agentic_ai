@@ -1,5 +1,5 @@
 ```
-'''
+
 That's an ambitious and fascinating goal! Creating a mechanical agentic AI model for the entire 3D design and manufacturing lifecycle is a significant undertaking, but it's definitely within the realm of possibility with the current advancements in AI and engineering.
 
 Let's break down what this would entail and how you might approach it.
@@ -364,6 +364,6 @@ mechanical-agentic-ai/
 
 
 This architecture provides a solid foundation. As you develop, you might find the need to adjust or add to it, which is a natural part of the iterative development process. Remember to update your `docs/architecture.md` as you evolve the design.
-'''
 
 ```
+
