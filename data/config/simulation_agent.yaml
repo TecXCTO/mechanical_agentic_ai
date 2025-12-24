@@ -1,0 +1,6 @@
+simulation_type: "FEA"
+solver_settings:
+  mesh_size: 0.5
+  element_order: "quadratic"
+analysis_params:
+  required_metrics: ["max_stress", "max_displacement"]

@@ -1,0 +1,4 @@
+manufacturing_params:
+  process: "3D_printing"
+  material: "PLA"
+  infill_density: 20%
