@@ -77,12 +77,11 @@ This repository houses the code and documentation for a comprehensive mechanical
 
 ## Architecture
 
-[Link to detailed architecture documentation, e.g., docs/architecture.md]
+ This architecture aims for modularity, scalability, and ease of collaboration.
 
-This architecture aims for modularity, scalability, and ease of collaboration.
+## GitHub Repository Structure: A Detailed Blueprint
 
-GitHub Repository Structure: A Detailed Blueprint
-
+```
 mechanical-agentic-ai/
 ├── .github/                # GitHub-specific configurations
 │   ├── workflows/          # CI/CD pipelines (GitHub Actions)
@@ -224,74 +223,86 @@ mechanical-agentic-ai/
 ├── LICENSE                 # Project license (e.g., MIT, Apache 2.0)
 ├── README.md               # Main project README file
 └── setup.py                # For packaging the project as an installable library (optional but good practice)
+```
 
-Explanation of Key Directories and Files:
-Root Directory:
+## Explanation of Key Directories and Files:
 
-README.md: The most important file. This should provide a high-level overview of the project, its goals, key features, quick start instructions, and links to more detailed documentation.
-LICENSE: Crucial for open-source projects. Choose an appropriate license.
-.gitignore: Essential for keeping your repository clean. List files and directories Git should ignore (e.g., __pycache__, *.pyc, environment folders, large data files not using Git LFS).
-requirements.txt, requirements_dev.txt, requirements_gpu.txt: Lists all Python dependencies. Separating them helps manage development, testing, and production environments.
-setup.py: If you plan to distribute your code as a Python package, this file is necessary.
-Dockerfile / docker-compose.yml: For containerization, ensuring consistent environments and easy deployment.
-.github/:
+**Root Directory:**
 
-workflows/: Contains YAML files defining GitHub Actions for CI/CD.
-ci.yml: Triggers on pushes/pull requests, runs linters, tests, and builds.
-cd.yml: If you have a deployment strategy (e.g., to cloud, to an internal server), this defines it.
-linting.yml: Specifically for running code style checks.
-ISSUE_TEMPLATE.md / PULL_REQUEST_TEMPLATE.md: Standardizes contributions.
-docs/:
+*   **`README.md`**: The most important file. This should provide a high-level overview of the project, its goals, key features, quick start instructions, and links to more detailed documentation.
+*   **`LICENSE`**: Crucial for open-source projects. Choose an appropriate license.
+*   **`.gitignore`**: Essential for keeping your repository clean. List files and directories Git should ignore (e.g., `__pycache__`, `*.pyc`, environment folders, large data files not using Git LFS).
+*   **`requirements.txt`**, **`requirements_dev.txt`**, **`requirements_gpu.txt`**: Lists all Python dependencies. Separating them helps manage development, testing, and production environments.
+*   **`setup.py`**: If you plan to distribute your code as a Python package, this file is necessary.
+*   **`Dockerfile` / `docker-compose.yml`**: For containerization, ensuring consistent environments and easy deployment.
 
-Comprehensive documentation is key for such a complex project.
-architecture.md: A more detailed version of this explanation.
-installation/: Step-by-step guides for setting up the project.
-usage/: How end-users or developers will interact with the agents and workflows.
-development/: For contributors, outlining coding standards, testing procedures, and how to set up a development environment.
-api/: If your agents expose APIs, document them here.
-src/:
+**`.github/`**:
 
-This is the heart of your project's code.
-agents/:
-base_agent.py: An abstract class defining common interfaces and methods for all agents (e.g., perceive, decide, act, learn).
-Individual Agent Directories: Each directory represents a specialized agent (e.g., design_agent, simulation_agent). Inside, you'll find the specific implementations for that agent's functionality.
-orchestration_agent/: A crucial agent responsible for managing the overall workflow, deciding which agent to call next, and handling communication between agents.
-core/:
-data_processing/: Utilities for cleaning, transforming, and preparing data for models.
-models/: Reusable ML model architectures or base implementations.
-algorithms/: General-purpose algorithms not tied to a specific agent.
-knowledge_base/: Modules for interacting with your structured engineering knowledge.
-integrations/:
-Handles all interactions with external software (CAD, CAE, CAM) and hardware.
-This modularity makes it easier to swap out or add support for different tools.
-utils/: Generic helper functions.
-main.py: The primary script to launch and run the agentic system.
-notebooks/:
+*   **`workflows/`**: Contains YAML files defining GitHub Actions for CI/CD.
+    *   `ci.yml`: Triggers on pushes/pull requests, runs linters, tests, and builds.
+    *   `cd.yml`: If you have a deployment strategy (e.g., to cloud, to an internal server), this defines it.
+    *   `linting.yml`: Specifically for running code style checks.
+*   **`ISSUE_TEMPLATE.md` / `PULL_REQUEST_TEMPLATE.md`**: Standardizes contributions.
 
-Excellent for rapid prototyping, experimentation, and creating illustrative examples.
-Keep them organized into experiments and demos.
-tests/:
+**`docs/`**:
 
-Essential for ensuring code quality and stability.
-Mirror the src/ structure.
-Include unit tests (testing individual functions/classes) and integration tests (testing interactions between modules/agents).
-data/:
+*   **Comprehensive documentation is key for such a complex project.**
+*   **`architecture.md`**: A more detailed version of this explanation.
+*   **`installation/`**: Step-by-step guides for setting up the project.
+*   **`usage/`**: How end-users or developers will interact with the agents and workflows.
+*   **`development/`**: For contributors, outlining coding standards, testing procedures, and how to set up a development environment.
+*   **`api/`**: If your agents expose APIs, document them here.
 
-Handle large data files carefully.
-Git LFS (Large File Storage) is highly recommended for storing datasets, CAD models, and large simulation results directly in the repository without bloating it. Alternatively, use cloud storage (S3, GCS) and provide scripts to download data.
-Organize data logically into raw, processed, and external.
-scripts/:
+**`src/`**:
 
-Convenience scripts for common developer and user tasks.
-Key Design Principles Applied:
-Modularity: Each agent and module has a clear responsibility. This makes it easier to develop, test, and maintain.
-Scalability: The architecture allows for adding new agents, new integrations, or new data processing pipelines as the project grows.
-Separation of Concerns: Code related to agents, core logic, integrations, and data are kept in distinct directories.
-Testability: A dedicated tests/ directory and clear interfaces facilitate writing comprehensive tests.
-Reproducibility: Using requirements.txt and containerization (Dockerfile) ensures that the environment can be recreated.
-Collaboration: Clear documentation, issue templates, and pull request templates encourage contributions.
-Extensibility: The integrations/ directory makes it easy to add support for new CAD, simulation, or manufacturing software.
-This architecture provides a solid foundation. As you develop, you might find the need to adjust or add to it, which is a natural part of the iterative development process. Remember to update your docs/architecture.md as you evolve the design.
+*   **This is the heart of your project's code.**
+*   **`agents/`**:
+    *   **`base_agent.py`**: An abstract class defining common interfaces and methods for all agents (e.g., `perceive`, `decide`, `act`, `learn`).
+    *   **Individual Agent Directories**: Each directory represents a specialized agent (e.g., `design_agent`, `simulation_agent`). Inside, you'll find the specific implementations for that agent's functionality.
+    *   **`orchestration_agent/`**: A crucial agent responsible for managing the overall workflow, deciding which agent to call next, and handling communication between agents.
+*   **`core/`**:
+    *   **`data_processing/`**: Utilities for cleaning, transforming, and preparing data for models.
+    *   **`models/`**: Reusable ML model architectures or base implementations.
+    *   **`algorithms/`**: General-purpose algorithms not tied to a specific agent.
+    *   **`knowledge_base/`**: Modules for interacting with your structured engineering knowledge.
+*   **`integrations/`**:
+    *   Handles all interactions with external software (CAD, CAE, CAM) and hardware.
+    *   This modularity makes it easier to swap out or add support for different tools.
+*   **`utils/`**: Generic helper functions.
+*   **`main.py`**: The primary script to launch and run the agentic system.
+
+**`notebooks/`**:
+
+*   Excellent for rapid prototyping, experimentation, and creating illustrative examples.
+*   Keep them organized into `experiments` and `demos`.
+
+**`tests/`**:
+
+*   **Essential for ensuring code quality and stability.**
+*   Mirror the `src/` structure.
+*   Include unit tests (testing individual functions/classes) and integration tests (testing interactions between modules/agents).
+
+**`data/`**:
+
+*   **Handle large data files carefully.**
+*   **Git LFS (Large File Storage)** is highly recommended for storing datasets, CAD models, and large simulation results directly in the repository without bloating it. Alternatively, use cloud storage (S3, GCS) and provide scripts to download data.
+*   Organize data logically into raw, processed, and external.
+
+**`scripts/`**:
+
+*   Convenience scripts for common developer and user tasks.
+
+## Key Design Principles Applied:
+
+1.  **Modularity:** Each agent and module has a clear responsibility. This makes it easier to develop, test, and maintain.
+2.  **Scalability:** The architecture allows for adding new agents, new integrations, or new data processing pipelines as the project grows.
+3.  **Separation of Concerns:** Code related to agents, core logic, integrations, and data are kept in distinct directories.
+4.  **Testability:** A dedicated `tests/` directory and clear interfaces facilitate writing comprehensive tests.
+5.  **Reproducibility:** Using `requirements.txt` and containerization (`Dockerfile`) ensures that the environment can be recreated.
+6.  **Collaboration:** Clear documentation, issue templates, and pull request templates encourage contributions.
+7.  **Extensibility:** The `integrations/` directory makes it easy to add support for new CAD, simulation, or manufacturing software.
+
+This architecture provides a solid foundation. As you develop, you might find the need to adjust or add to it, which is a natural part of the iterative development process. Remember to update your `docs/architecture.md` as you evolve the design.
 
 ## Getting Started
 
@@ -312,4 +323,5 @@ This architecture provides a solid foundation. As you develop, you might find th
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
