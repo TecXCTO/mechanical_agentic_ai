@@ -1,1 +1,24 @@
-# Add your core dependencies here
+# Core Dependencies
+# Add more specific versions as needed
+# numpy
+# pandas
+# PyYAML
+
+# Machine Learning Libraries (example)
+# tensorflow
+# pytorch
+# scikit-learn
+
+# For CLI and config management
+# Click
+# python-dotenv
+
+# For notebook support
+# jupyter
+# matplotlib
+
+# For testing
+# pytest
+
+# Placeholder for essential libraries. Adjust as per your actual needs.
+PyYAML
