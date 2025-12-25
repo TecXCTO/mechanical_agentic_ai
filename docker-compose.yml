@@ -1,0 +1,15 @@
+
+version: '3.8'
+
+services:
+  mech_ai:
+    build: .
+    container_name: mech_agent_ai_container
+    volumes:
+      - ./data:/app/data # Mount data directory
+    environment:
+      - LOG_LEVEL=DEBUG
+      - DATA_DIR=/app/data
+    # Add ports if your agent exposes an API, etc.
+    # ports:
+    #   - "8000:8000"

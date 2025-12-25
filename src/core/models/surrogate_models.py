@@ -1,0 +1,2 @@
+class SurrogateModel:
+    pass

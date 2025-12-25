@@ -1,5 +1,3 @@
-This directory is for storing non-sensitive data, configuration files, and sample datasets.
+# Data Directory
 
-- `config/`: YAML or JSON configuration files.
-- `datasets/`: Sample datasets for testing or demonstration.
-- `models/`: Pre-trained ML models (if small enough).
+[Explain data structure, storage strategy (Git LFS, cloud storage), and licensing.]
